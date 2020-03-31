@@ -1,0 +1,22 @@
+{
+  "name": "alexdemers/onespansign-sdk-php",
+  "license": "MIT",
+  "type": "library",
+  "description": "",
+  "require": {
+    "karriere/json-decoder": "^2.2",
+    "guzzle/http": "^3.9"
+  },
+  "authors": [
+    {
+      "name": "Alexandre Demers",
+      "email": "alex@deme.rs",
+      "role": "Developer"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "alexdemers\\OneSpanSign\\": "src/"
+    }
+  }
+}
