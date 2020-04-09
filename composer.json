@@ -5,7 +5,7 @@
   "description": "",
   "require": {
     "karriere/json-decoder": "^2.2",
-    "guzzle/http": "^3.9"
+    "guzzlehttp/guzzle": "^6.5.2"
   },
   "authors": [
     {
