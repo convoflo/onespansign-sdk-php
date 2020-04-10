@@ -9,8 +9,28 @@ namespace alexdemers\OneSpanSign\Models;
  */
 class Field extends Model
 {
+	const SUBTYPE_FULLNAME = 'FULLNAME';
+	const SUBTYPE_INITIALS = 'INITIALS';
+	const SUBTYPE_CAPTURE = 'CAPTURE';
+	const SUBTYPE_LABEL = 'LABEL';
+	const SUBTYPE_TEXTFIELD = 'TEXTFIELD';
+	const SUBTYPE_TEXTAREA = 'TEXTAREA';
+	const SUBTYPE_CHECKBOX = 'CHECKBOX';
+	const SUBTYPE_DATE = 'DATE';
+	const SUBTYPE_RADIO = 'RADIO';
+	const SUBTYPE_LIST = 'LIST';
+	const SUBTYPE_QRCODE = 'QRCODE';
+	const SUBTYPE_CUSTOMFIELD = 'CUSTOMFIELD';
+	const SUBTYPE_SEAL = 'SEAL';
+	const SUBTYPE_MOBILE_CAPTURE = 'MOBILE_CAPTURE';
+	const SUBTYPE_RAW_CAPTURE = 'RAW_CAPTURE';
+	const SUBTYPE_DATEPICKER = 'DATEPICKER';	
+	
 	/** @var string */
 	protected $type = 'SIGNATURE';
+	
+	/** @var string */
+	protected $subtype = '';
 
 	/** @var string */
 	protected $id = '';
@@ -162,6 +182,24 @@ class Field extends Model
 	public function withHeight(float $height): Field
 	{
 		$this->height = $height;
+		return $this;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getSubtype(): string
+	{
+		return $this->subtype;
+	}
+
+	/**
+	 * @param string $subtype
+	 * @return Field
+	 */
+	public function withSubtype(string $subtype): Field
+	{
+		$this->subtype = $subtype;
 		return $this;
 	}
 
