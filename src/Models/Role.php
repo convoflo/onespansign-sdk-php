@@ -23,6 +23,9 @@ class Role extends Model
 	/** @var string */
 	protected $id = null;
 
+	/** @var int */
+	protected $index = 0;
+
 	/**
 	 * @param string $name
 	 * @return Role
@@ -94,6 +97,24 @@ class Role extends Model
 	public function withName(string $name): self
 	{
 		$this->name = $name;
+		return $this;
+	}
+
+	/**
+	 * @return int
+	 */
+	public function getIndex(): int
+	{
+		return $this->index;
+	}
+
+	/**
+	 * @param int $index
+	 * @return Role
+	 */
+	public function withIndex(int $index): self
+	{
+		$this->index = $index;
 		return $this;
 	}
 
