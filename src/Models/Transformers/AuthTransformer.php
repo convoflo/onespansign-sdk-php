@@ -2,6 +2,7 @@
 
 namespace alexdemers\OneSpanSign\Models\Transformers;
 
+use Karriere\JsonDecoder\Bindings\ArrayBinding;
 use alexdemers\OneSpanSign\Models\Auth;
 use alexdemers\OneSpanSign\Models\AuthChallenge;
 use Karriere\JsonDecoder\ClassBindings;
