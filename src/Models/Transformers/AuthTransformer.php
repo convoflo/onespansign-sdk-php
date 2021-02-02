@@ -1,19 +1,17 @@
 <?php
 
-
 namespace alexdemers\OneSpanSign\Models\Transformers;
 
-
+use alexdemers\OneSpanSign\Models\Auth;
+use alexdemers\OneSpanSign\Models\AuthChallenge;
 use Karriere\JsonDecoder\ClassBindings;
 use Karriere\JsonDecoder\Transformer;
-use alexdemers\OneSpanSign\Models\Signer;
-use alexdemers\OneSpanSign\Models\Auth;
 
 /**
  * Class SignerTransformer
  * @package TagMyDoc\OneSpan\Models\Transformers
  */
-class SignerTransformer implements Transformer
+class AuthTransformer implements Transformer
 {
 
 	/**
@@ -23,7 +21,7 @@ class SignerTransformer implements Transformer
 	 */
 	public function register(ClassBindings $classBindings)
 	{
-        $classBindings->register(new FieldBinding('auth', 'auth', Auth::class));
+		$classBindings->register(new ArrayBinding('challenges', 'challenges', AuthChallenge::class));
 	}
 
 	/**
@@ -31,6 +29,6 @@ class SignerTransformer implements Transformer
 	 */
 	public function transforms()
 	{
-		return Signer::class;
+		return Auth::class;
 	}
 }

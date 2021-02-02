@@ -8,15 +8,16 @@ use alexdemers\OneSpanSign\Models\Role;
 use alexdemers\OneSpanSign\Models\Document;
 use alexdemers\OneSpanSign\Models\Package;
 use alexdemers\OneSpanSign\Models\Signer;
-use alexdemers\OneSpanSign\Models\Transformers\PageTransformer;
 use GuzzleHttp\Exception\GuzzleException;
 use Illuminate\Support\Collection;
 use Karriere\JsonDecoder\JsonDecoder;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\StreamInterface;
 use alexdemers\OneSpanSign\Models\Transformers\ApprovalTransformer;
+use alexdemers\OneSpanSign\Models\Transformers\AuthTransformer;
 use alexdemers\OneSpanSign\Models\Transformers\DocumentTransformer;
 use alexdemers\OneSpanSign\Models\Transformers\PackageTransformer;
+use alexdemers\OneSpanSign\Models\Transformers\PageTransformer;
 use alexdemers\OneSpanSign\Models\Transformers\RoleTransformer;
 use alexdemers\OneSpanSign\Models\Transformers\SignerTransformer;
 
@@ -546,6 +547,7 @@ class Client
 			$decoder->register(new SignerTransformer());
 			$decoder->register(new DocumentTransformer());
 			$decoder->register(new ApprovalTransformer());
+			$decoder->register(new AuthTransformer());
 
 			if ($is_array) {
 				$payload = json_decode($response->getBody()->getContents());

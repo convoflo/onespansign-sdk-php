@@ -28,9 +28,6 @@ class Signer extends Model
 	protected $lastName = '';
 
 	/** @var array */
-	protected $auth = ['scheme' => 'NONE'];
-
-	/** @var array */
 	protected $delivery = ['provider' => false, 'email' => true, 'download' => false];
 
 	/** @var string */
@@ -38,6 +35,9 @@ class Signer extends Model
 
 	/** @var string */
 	protected $signerType = self::TYPE_EXTERNAL_SIGNER;
+
+	/** Auth */
+	protected $auth = null;
 
 	/**
 	 * @param string $email
@@ -123,33 +123,6 @@ class Signer extends Model
 	/**
 	 * @return array
 	 */
-	public function getAuth(): array
-	{
-		return $this->auth;
-	}
-
-	/**
-	 * @param array $auth
-	 * @return Signer
-	 */
-	public function withAuth(array $auth): Signer
-	{
-		$this->auth = $auth;
-		return $this;
-	}
-
-	/**
-	 * @return Signer
-	 */
-	public function withNoAuth(): Signer
-	{
-		$this->auth = ['scheme' => 'NONE'];
-		return $this;
-	}
-
-	/**
-	 * @return array
-	 */
 	public function getDelivery(): array
 	{
 		return $this->delivery;
@@ -209,5 +182,33 @@ class Signer extends Model
 		$this->signerType = $signerType;
 		return $this;
 	}
+
+    /**
+     * @return ?Auth
+     */
+    public function getAuth(): ?Auth
+    {
+        return $this->auth;
+    }
+
+    /**
+     * @param ?Auth $auth
+     * @return Signer
+     */
+    public function withAuth(?Auth $auth): Signer
+    {
+        $this->auth = $auth;
+        return $this;
+    }
+
+    /**
+     * @param string $phoneNumber
+     * @return $this
+     */
+    public function withSmsAuth(string $phoneNumber): Signer
+    {
+        $this->auth = new SmsAuthChallenge($phoneNumber);
+        return $this;
+    }
 
 }
