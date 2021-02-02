@@ -4,6 +4,7 @@
 namespace alexdemers\OneSpanSign\Models\Transformers;
 
 
+use Karriere\JsonDecoder\Bindings\FieldBinding;
 use Karriere\JsonDecoder\ClassBindings;
 use Karriere\JsonDecoder\Transformer;
 use alexdemers\OneSpanSign\Models\Signer;
