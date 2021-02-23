@@ -241,6 +241,21 @@ class Client
 		return sprintf('%s/auth?senderAuthenticationToken=%s&target=/a/transaction/%s/designer', $base_url, rawurlencode($token), $package->getId());
 	}
 
+	/**
+	 * Retrieves Evidence Summary information for a specified package.
+	 * 
+     * @param Package $package The package
+     * @param string $filename
+     * @return ResponseInterface
+     * @throws GuzzleException
+	 */
+	public function getPackageEvidenceSummary(Package $package, string $filename)
+	{
+		return $this->sendRequest('get', "packages/{$package->getId()}/evidence/summary", [
+		    'sink' => $filename
+        ]);
+	}
+
     /**
      * Reorders the roles in a specified package.
      *
