@@ -243,7 +243,7 @@ class Client
 
 	/**
 	 * Retrieves Evidence Summary information for a specified package.
-	 * 
+	 *
      * @param Package $package The package
      * @param string $filename
      * @return ResponseInterface
@@ -253,7 +253,7 @@ class Client
 	{
 		return $this->sendRequest('get', "packages/{$package->getId()}/evidence/summary", [
 		    'sink' => $filename
-        ]);
+        ], "application/pdf");
 	}
 
     /**
