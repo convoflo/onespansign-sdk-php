@@ -339,7 +339,6 @@ class Client
 	 */
 	public function updateRoleToPackage(Package $package, Role $exitingRole, Role $newRole): Role
 	{
-		dd("packages/{$package->getId()}/roles/{$exitingRole->getId()}", json_encode($newRole));
 		return $this->parseResponse($this->sendRequest('put', "packages/{$package->getId()}/roles/{$exitingRole->getId()}", [
 			'json' => $newRole
 		]), Role::class);
