@@ -33,6 +33,9 @@ class Document extends Model
 	/** @var int */
 	protected $size = 0;
 
+	/** @var int */
+	protected $index = 0;
+
 	/** @var array */
 //	protected $data = [];
 
@@ -197,6 +200,24 @@ class Document extends Model
 	public function withSize(int $size): Document
 	{
 		$this->size = $size;
+		return $this;
+	}
+
+	/**
+	 * @return int
+	 */
+	public function getIndex(): int
+	{
+		return $this->index;
+	}
+
+	/**
+	 * @param int $index
+	 * @return Document
+	 */
+	public function withIndex(int $index): Document
+	{
+		$this->index = $index;
 		return $this;
 	}
 }
