@@ -529,7 +529,7 @@ class Client
 	 * @return ResponseInterface
 	 * @throws GuzzleException
 	 */
-	protected function sendRequest(string $method, string $endpoint, array $options = [], string $accept = 'application/json'): ResponseInterface
+	public function sendRequest(string $method, string $endpoint, array $options = [], string $accept = 'application/json'): ResponseInterface
 	{
 		$headers = [
 			'Authorization' => 'Basic ' . $this->apiKey,
