@@ -235,10 +235,10 @@ class Client
         }
 
 		if ($classic_designer) {
-			return sprintf('%s/auth?authenticationToken=%s&target=/designer/%s', $base_url, rawurlencode($token), $package->getId());
+			return sprintf('%s/auth?authenticationToken=%s&target=%s/designer/%s', $base_url, rawurlencode($token), $base_url, $package->getId());
 		}
 
-		return sprintf('%s/auth?senderAuthenticationToken=%s&target=/a/transaction/%s/designer', $base_url, rawurlencode($token), $package->getId());
+		return sprintf('%s/auth?senderAuthenticationToken=%s&target=%s/a/transaction/%s/designer', $base_url, rawurlencode($token), $base_url, $package->getId());
 	}
 
 	/**
