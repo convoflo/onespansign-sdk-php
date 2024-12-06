@@ -26,6 +26,9 @@ class Role extends Model
 	/** @var int */
 	protected $index = 0;
 
+    /** @var bool */
+    protected $reassign = false;
+
 	/**
 	 * @param string $name
 	 * @return Role
@@ -145,4 +148,22 @@ class Role extends Model
 		$this->signers[] = $signer;
 		return $this;
 	}
+
+    /**
+     * @return bool
+     */
+    public function getReassign(): bool
+    {
+        return $this->reassign;
+    }
+
+    /**
+     * @param bool $reassign
+     * @return Role
+     */
+    public function withReassign(bool $reassign): self
+    {
+        $this->reassign = $reassign;
+        return $this;
+    }
 }
