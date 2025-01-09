@@ -39,6 +39,9 @@ class Signer extends Model
 	/** Auth */
 	protected $auth = null;
 
+    /** @var */
+    protected $title = '';
+
 	/**
 	 * @param string $email
 	 * @return Signer
@@ -209,6 +212,14 @@ class Signer extends Model
     {
         $this->auth = new SmsAuthChallenge($phoneNumber);
         return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTitle(): string
+    {
+        return $this->title;
     }
 
 }

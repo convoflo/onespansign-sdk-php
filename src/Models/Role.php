@@ -29,6 +29,12 @@ class Role extends Model
     /** @var bool */
     protected $reassign = false;
 
+    /** @array array */
+    protected $emailMessage = [
+        'content' => '',
+    ];
+
+
 	/**
 	 * @param string $name
 	 * @return Role
@@ -166,4 +172,22 @@ class Role extends Model
         $this->reassign = $reassign;
         return $this;
     }
+
+    /**
+     * @return array
+     */
+    public function getEmailMessage(): array
+    {
+        return $this->emailMessage;
+    }
+
+    /**
+     * @param array $emailMessage
+     * @return void
+     */
+    public function setEmailMessage(array $emailMessage): void
+    {
+        $this->emailMessage = $emailMessage;
+    }
+
 }
