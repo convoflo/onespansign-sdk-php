@@ -50,6 +50,10 @@ class Field extends Model
 	/** @var float */
 	protected $height = 0.0;
 
+	/** @var ?Validation */
+	protected $validation = null;
+
+
 	/**
 	 * @param string $type
 	 * @return Field
@@ -200,6 +204,24 @@ class Field extends Model
 	public function withSubtype(string $subtype): Field
 	{
 		$this->subtype = $subtype;
+		return $this;
+	}
+
+	/**
+	 * @return Validation
+	 */
+	public function getValidation(): string
+	{
+		return $this->validation;
+	}
+
+	/**
+	 * @param Validation $validation
+	 * @return Field
+	 */
+	public function withValidation(Validation $validation): Field
+	{
+		$this->validation = $validation;
 		return $this;
 	}
 
